@@ -63,6 +63,9 @@ class SensorApp(tk.Tk):
         btn_stop = ttk.Button(frame_bot, text="Stop", command=self.stop)
         btn_stop.grid(row=1, column=1, sticky="ew", pady=(8,0), padx=(6,0))
 
+        btn_reset = ttk.Button(frame_bot, text="Reset Acumulado", command=self.reset_accumulated)
+        btn_reset.grid(row=1, column=2, sticky="ew", pady=(8,0), padx=(6,0))
+
         btn_quit = ttk.Button(self, text="Fechar", command=self._on_close)
         btn_quit.pack(side="bottom", pady=(0,8))
 
@@ -85,6 +88,22 @@ class SensorApp(tk.Tk):
             self.after_cancel(self._job)
             self._job = None
         self.status_var.set("Parado")
+
+
+    
+    def reset_accumulated(self):
+        """Chama o comando para zerar o fluxo acumulado."""
+        if not self.sensor:
+            messagebox.showwarning("Aviso", "Sensor não inicializado.")
+            return
+        try:
+            self.sensor.reset_accumulated_flow_rate()
+            self.status_var.set("Fluxo acumulado resetado com sucesso.")
+            logging.info("Comando de reset enviado com sucesso.")
+        except Exception as e:
+            logging.exception("Erro ao resetar fluxo acumulado")
+            messagebox.showerror("Erro", f"Falha ao enviar comando:\n{e}")
+            self.status_var.set("Erro ao enviar reset")
 
     def _read_loop(self):
         """Loop que faz a leitura e agenda a próxima execução."""

@@ -27,7 +27,7 @@ class Sensor:
         raw_value_c = self.__read_register_value(0x003C)
         raw_value_d = self.__read_register_value(0x003D)
         raw_value_e = self.__read_register_value(0x003E)
-        accumulated_flow = raw_value_c * 65536 + raw_value_d + raw_value_e/10
+        accumulated_flow = (raw_value_c * 65536) + (raw_value_d * 100) + (raw_value_e/10)
 
         return accumulated_flow
     

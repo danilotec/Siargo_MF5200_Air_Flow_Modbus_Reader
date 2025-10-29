@@ -69,10 +69,10 @@ Contribuições são bem-vindas! Se você encontrar um bug, tiver uma sugestão 
 
    - Faça um Fork do projeto.
 
-   - Crie uma nova Branch (git checkout -b feature/sua-feature-incrivel).
+   - Crie uma nova Branch (git checkout -b feature/sua-feature).
 
    - Faça seus Commits (git commit -m 'Adiciona feature X').
 
-   - Faça um Push para a Branch (git push origin feature/sua-feature-incrivel).
+   - Faça um Push para a Branch (git push origin feature/sua-feature).
 
    - Abra um Pull Request detalhando suas alterações.

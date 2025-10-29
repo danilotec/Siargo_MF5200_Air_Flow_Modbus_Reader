@@ -30,7 +30,7 @@ A classe SensorApp estende tkinter.Tk e implementa a interface gráfica (GUI) pa
 
    - Controles e Status (Bot): Exibe o Status da comunicação e os botões Start, Stop e Reset Acumulado.
 
-🧩 Métodos Funcionais
+## Métodos Funcionais
 
 ### 1. start(self)
 
